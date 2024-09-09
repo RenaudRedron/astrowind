@@ -22,6 +22,7 @@ const metadata = {
   <!-- Hero Widget ******************* -->
 
   <Hero
+    translationKey='index'
     actions={[
       {
         variant: 'primary',
@@ -51,11 +52,12 @@ const metadata = {
 
   <!-- Note Widget ******************* -->
 
-  <Note />
+  <Note translationKey='index' />
 
   <!-- Features Widget *************** -->
 
   <Features
+    translationKey='index'
     id="features"
     tagline="Features"
     title="What you get with AstroWind"
@@ -129,8 +131,8 @@ const metadata = {
     }}
   >
     <Fragment slot="content">
-      <h3 data-i18n="index.content1.title" class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Building on modern foundations</h3>
-      <span data-i18n="index.content1.subtitle">Gain a competitive advantage by incorporating industry leading practices</span>
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Building on modern foundations</h3>
+      Gain a competitive advantage by incorporating industry leading practices
     </Fragment>
 
     <Fragment slot="bg">
@@ -168,7 +170,7 @@ const metadata = {
       alt: 'Blueprint Image',
     }}
   >
-    <Fragment slot="content"><span data-i18n="index.content2.title">Ensure your online presence truly represents you.</span></Fragment>
+    <Fragment slot="content">Ensure your online presence truly represents you.</Fragment>
 
     <Fragment slot="bg">
       <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
@@ -206,7 +208,7 @@ const metadata = {
       alt: 'Astronauts Image',
     }}
   >
-    <Fragment slot="content"><span data-i18n="index.content3.title">Designed to foster growth and success.</span></Fragment>
+    <Fragment slot="content">Designed to foster growth and success.</Fragment>
 
     <Fragment slot="bg">
       <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
@@ -387,12 +389,12 @@ const metadata = {
     ]}
   >
     <Fragment slot="title">
-      <span data-i18n="index.calltoaction.title.part1">Astro&nbsp;+&nbsp;</span><br class="block sm:hidden" /><span data-i18n="index.calltoaction.title.part2" class="sm:whitespace-nowrap">Tailwind CSS</span>
+      Astro&nbsp;+&nbsp;<br class="block sm:hidden" /><span class="sm:whitespace-nowrap">Tailwind CSS</span>
     </Fragment>
 
     <Fragment slot="subtitle">
-      <span data-i18n="index.calltoaction.subtitle">Be very surprised by these huge fake numbers you are seeing on this page. <br class="hidden md:inline" />Don't
-      waste more time! :P</span>
+      Be very surprised by these huge fake numbers you are seeing on this page. <br class="hidden md:inline" />Don't
+      waste more time! :P
     </Fragment>
   </CallToAction>
 </Layout>

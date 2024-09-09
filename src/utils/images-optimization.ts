@@ -7,6 +7,7 @@ import type { HTMLAttributes } from 'astro/types';
 type Layout = 'fixed' | 'constrained' | 'fullWidth' | 'cover' | 'responsive' | 'contained';
 
 export interface ImageProps extends Omit<HTMLAttributes<'img'>, 'src'> {
+  translationKey: string;
   src?: string | ImageMetadata | null;
   width?: string | number | null;
   height?: string | number | null;

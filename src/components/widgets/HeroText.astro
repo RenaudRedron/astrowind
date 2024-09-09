@@ -56,7 +56,7 @@ const {
                   {typeof callToAction === 'string' ? (
                     <Fragment set:html={callToAction} />
                   ) : (
-                    <Button translationKey={`${translationKey}.herotext`} variant="primary" {...callToAction} />
+                    <Button translationKey={`${translationKey}.herotext.button`} variant="primary" {...callToAction} />
                   )}
                 </div>
               )
@@ -67,7 +67,7 @@ const {
                   {typeof callToAction2 === 'string' ? (
                     <Fragment set:html={callToAction2} />
                   ) : (
-                    <Button translationKey={`${translationKey}.herotext`} {...callToAction2} />
+                    <Button translationKey={`${translationKey}.herotext.button`} {...callToAction2} />
                   )}
                 </div>
               )
