@@ -106,6 +106,7 @@ export interface Widget {
 }
 
 export interface Headline {
+  translationKey?: string;
   title?: string;
   subtitle?: string;
   tagline?: string;
@@ -182,6 +183,7 @@ export interface Disclaimer {
 
 // COMPONENTS
 export interface CallToAction extends Omit<HTMLAttributes<'a'>, 'slot'> {
+  translationKey?: string;
   variant?: 'primary' | 'secondary' | 'tertiary' | 'link';
   text?: string;
   icon?: string;
@@ -190,6 +192,7 @@ export interface CallToAction extends Omit<HTMLAttributes<'a'>, 'slot'> {
 }
 
 export interface ItemGrid {
+  translationKey?: string;
   items?: Array<Item>;
   columns?: number;
   defaultIcon?: string;
@@ -205,6 +208,7 @@ export interface Collapse {
 }
 
 export interface Form {
+  translationKey?: string;
   inputs?: Array<Input>;
   textarea?: Textarea;
   disclaimer?: Disclaimer;
