@@ -32,7 +32,7 @@ const {
         {
           tagline && (
             <p
-              data-i18n={`${translationKey}.herotext.tagline`}
+              data-i18n={`${translationKey}.tagline`}
               class="text-base text-secondary dark:text-blue-200 font-bold tracking-wide uppercase"
               set:html={tagline}
             />
@@ -41,40 +41,40 @@ const {
         {
           title && (
             <h1
-            data-i18n={`${translationKey}.herotext.title`}
+            data-i18n={`${translationKey}.title`}
               class="text-5xl md:text-6xl font-bold leading-tighter tracking-tighter mb-4 font-heading dark:text-gray-200"
               set:html={title}
             />
           )
         }
         <div class="max-w-3xl mx-auto">
-          {subtitle && <p data-i18n={`${translationKey}.herotext.subtitle`} class="text-xl text-muted mb-6 dark:text-slate-300" set:html={subtitle} />}
+          {subtitle && <p data-i18n={`${translationKey}.subtitle`} class="text-xl text-muted mb-6 dark:text-slate-300" set:html={subtitle} />}
           <div class="max-w-xs sm:max-w-md m-auto flex flex-nowrap flex-col sm:flex-row sm:justify-center gap-4">
             {
               callToAction && (
-                <div data-i18n={`${translationKey}.herotext.calltoaction`} class="flex w-full sm:w-auto">
+                <div data-i18n={`${translationKey}.calltoaction`} class="flex w-full sm:w-auto">
                   {typeof callToAction === 'string' ? (
                     <Fragment set:html={callToAction} />
                   ) : (
-                    <Button translationKey={`${translationKey}.herotext.button`} variant="primary" {...callToAction} />
+                    <Button translationKey={`${translationKey}.button`} variant="primary" {...callToAction} />
                   )}
                 </div>
               )
             }
             {
               callToAction2 && (
-                <div data-i18n={`${translationKey}.herotext.calltoaction2`} class="flex w-full sm:w-auto">
+                <div data-i18n={`${translationKey}.calltoaction2`} class="flex w-full sm:w-auto">
                   {typeof callToAction2 === 'string' ? (
                     <Fragment set:html={callToAction2} />
                   ) : (
-                    <Button translationKey={`${translationKey}.herotext.button`} {...callToAction2} />
+                    <Button translationKey={`${translationKey}.button`} {...callToAction2} />
                   )}
                 </div>
               )
             }
           </div>
         </div>
-        {content && <span data-i18n={`${translationKey}.herotext.content`}><Fragment set:html={content} /></span>}
+        {content && <span data-i18n={`${translationKey}.content`}><Fragment set:html={content} /></span>}
       </div>
     </div>
   </div>

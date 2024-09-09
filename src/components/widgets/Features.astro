@@ -5,6 +5,7 @@ import Headline from '~/components/ui/Headline.astro';
 import type { Features as Props } from '~/types';
 
 const {
+  translationKey,
   title = await Astro.slots.render('title'),
   subtitle = await Astro.slots.render('subtitle'),
   tagline = await Astro.slots.render('tagline'),
@@ -21,8 +22,9 @@ const {
 ---
 
 <WidgetWrapper id={id} isDark={isDark} containerClass={`max-w-5xl ${classes?.container ?? ''}`} bg={bg}>
-  <Headline title={title} subtitle={subtitle} tagline={tagline} classes={classes?.headline as Record<string, string>} />
+  <Headline translationKey={`${translationKey}.headline`} title={title} subtitle={subtitle} tagline={tagline} classes={classes?.headline as Record<string, string>} />
   <ItemGrid
+    translationKey={`${translationKey}.itemgrid`}
     items={items}
     columns={columns}
     defaultIcon={defaultIcon}

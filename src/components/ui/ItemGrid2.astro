@@ -37,13 +37,13 @@ const {
           {(icon || defaultIcon) && (
             <Icon name={icon || defaultIcon} class={twMerge('mb-2 w-10 h-10', defaultIconClass, itemClasses?.icon)} />
           )}
-          <div data-i18n={`${translationKey}.itemgrid2.title.${index}`} class={twMerge('text-xl font-bold', titleClass, itemClasses?.title)}>{title}</div>
+          <div data-i18n={`${translationKey}.title.${index}`} class={twMerge('text-xl font-bold', titleClass, itemClasses?.title)}>{title}</div>
           {description && (
-            <p data-i18n={`${translationKey}.itemgrid2.description.${index}`} class={twMerge('text-muted mt-2', descriptionClass, itemClasses?.description)} set:html={description} />
+            <p data-i18n={`${translationKey}.description.${index}`} class={twMerge('text-muted mt-2', descriptionClass, itemClasses?.description)} set:html={description} />
           )}
           {callToAction && (
             <div class="mt-2">
-              <Button translationKey={`${translationKey}.itemgrid2.button.${index}`} {...callToAction} />
+              <Button translationKey={`${translationKey}.button.${index}`} {...callToAction} />
             </div>
           )}
         </div>

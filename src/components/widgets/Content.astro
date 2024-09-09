@@ -7,6 +7,7 @@ import Button from '~/components/ui/Button.astro';
 import ItemGrid from '../ui/ItemGrid.astro';
 
 const {
+  translationKey,
   title = await Astro.slots.render('title'),
   subtitle = await Astro.slots.render('subtitle'),
   tagline,
@@ -32,6 +33,7 @@ const {
   bg={bg}
 >
   <Headline
+    translationKey={`${translationKey}.headline`}
     title={title}
     subtitle={subtitle}
     tagline={tagline}
@@ -49,12 +51,13 @@ const {
         {
           callToAction && (
             <div class="mt-[-40px] mb-8 text-primary">
-              <Button variant="link" {...callToAction} />
+              <Button translationKey={`${translationKey}.headline.button`} variant="link" {...callToAction} />
             </div>
           )
         }
 
         <ItemGrid
+          translationKey={`${translationKey}.itemgrid`}
           items={items}
           columns={columns}
           defaultIcon="tabler:check"
@@ -76,6 +79,7 @@ const {
                 <Fragment set:html={image} />
               ) : (
                 <Image
+                  translationKey={`${translationKey}.image`}
                   class="mx-auto w-full rounded-lg bg-gray-500 shadow-lg"
                   width={500}
                   height={500}
