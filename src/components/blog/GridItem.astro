@@ -8,10 +8,11 @@ import { findImage } from '~/utils/images';
 import { getPermalink } from '~/utils/permalinks';
 
 export interface Props {
+  translationKey: string;
   post: Post;
 }
 
-const { post } = Astro.props;
+const { translationKey, post } = Astro.props;
 const image = await findImage(post.image);
 
 const link = APP_BLOG?.post?.isEnabled ? getPermalink(post.permalink, 'post') : '';
@@ -24,6 +25,7 @@ const link = APP_BLOG?.post?.isEnabled ? getPermalink(post.permalink, 'post') : 
         (link ? (
           <a href={link}>
             <Image
+              translationKey={`${translationKey}.image`}
               src={image}
               class="w-full md:h-full rounded shadow-lg bg-gray-400 dark:bg-slate-700"
               widths={[400, 900]}
@@ -38,6 +40,7 @@ const link = APP_BLOG?.post?.isEnabled ? getPermalink(post.permalink, 'post') : 
           </a>
         ) : (
           <Image
+            translationKey={`${translationKey}.image`}
             src={image}
             class="w-full md:h-full rounded shadow-lg bg-gray-400 dark:bg-slate-700"
             widths={[400, 900]}
@@ -56,14 +59,14 @@ const link = APP_BLOG?.post?.isEnabled ? getPermalink(post.permalink, 'post') : 
   <h3 class="text-xl sm:text-2xl font-bold leading-tight mb-2 font-heading dark:text-slate-300">
     {
       link ? (
-        <a class="inline-block hover:text-primary dark:hover:text-blue-700 transition ease-in duration-200" href={link}>
+        <a data-i18n={`${translationKey}.title`} class="inline-block hover:text-primary dark:hover:text-blue-700 transition ease-in duration-200" href={link}>
           {post.title}
         </a>
       ) : (
-        post.title
+        <span data-i18n={`${translationKey}.title`}>{post.title}</span>
       )
     }
   </h3>
 
-  <p class="text-muted dark:text-slate-400 text-lg">{post.excerpt}</p>
+  <p data-i18n={`${translationKey}.subtitle`} class="text-muted dark:text-slate-400 text-lg">{post.excerpt}</p>
 </article>

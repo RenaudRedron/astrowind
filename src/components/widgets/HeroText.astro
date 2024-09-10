@@ -3,6 +3,7 @@ import type { CallToAction } from '~/types';
 import Button from '~/components/ui/Button.astro';
 
 export interface Props {
+  translationKey?: string
   title?: string;
   subtitle?: string;
   tagline?: string;
@@ -12,6 +13,7 @@ export interface Props {
 }
 
 const {
+  translationKey,
   title = await Astro.slots.render('title'),
   subtitle = await Astro.slots.render('subtitle'),
   tagline,
@@ -30,6 +32,7 @@ const {
         {
           tagline && (
             <p
+              data-i18n={`${translationKey}.tagline`}
               class="text-base text-secondary dark:text-blue-200 font-bold tracking-wide uppercase"
               set:html={tagline}
             />
@@ -38,39 +41,40 @@ const {
         {
           title && (
             <h1
+            data-i18n={`${translationKey}.title`}
               class="text-5xl md:text-6xl font-bold leading-tighter tracking-tighter mb-4 font-heading dark:text-gray-200"
               set:html={title}
             />
           )
         }
         <div class="max-w-3xl mx-auto">
-          {subtitle && <p class="text-xl text-muted mb-6 dark:text-slate-300" set:html={subtitle} />}
+          {subtitle && <p data-i18n={`${translationKey}.subtitle`} class="text-xl text-muted mb-6 dark:text-slate-300" set:html={subtitle} />}
           <div class="max-w-xs sm:max-w-md m-auto flex flex-nowrap flex-col sm:flex-row sm:justify-center gap-4">
             {
               callToAction && (
-                <div class="flex w-full sm:w-auto">
+                <div data-i18n={`${translationKey}.calltoaction`} class="flex w-full sm:w-auto">
                   {typeof callToAction === 'string' ? (
                     <Fragment set:html={callToAction} />
                   ) : (
-                    <Button variant="primary" {...callToAction} />
+                    <Button translationKey={`${translationKey}.button`} variant="primary" {...callToAction} />
                   )}
                 </div>
               )
             }
             {
               callToAction2 && (
-                <div class="flex w-full sm:w-auto">
+                <div data-i18n={`${translationKey}.calltoaction2`} class="flex w-full sm:w-auto">
                   {typeof callToAction2 === 'string' ? (
                     <Fragment set:html={callToAction2} />
                   ) : (
-                    <Button {...callToAction2} />
+                    <Button translationKey={`${translationKey}.button`} {...callToAction2} />
                   )}
                 </div>
               )
             }
           </div>
         </div>
-        {content && <Fragment set:html={content} />}
+        {content && <span data-i18n={`${translationKey}.content`}><Fragment set:html={content} /></span>}
       </div>
     </div>
   </div>

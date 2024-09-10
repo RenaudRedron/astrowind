@@ -4,7 +4,7 @@ import { twMerge } from 'tailwind-merge';
 import Button from './Button.astro';
 import { Icon } from 'astro-icon/components';
 
-const { items = [], columns, defaultIcon = '', classes = {} } = Astro.props;
+const { translationKey, items = [], columns, defaultIcon = '', classes = {} } = Astro.props;
 
 const {
   container: containerClass = '',
@@ -32,7 +32,7 @@ const {
         containerClass
       )}
     >
-      {items.map(({ title, description, icon, callToAction, classes: itemClasses = {} }) => (
+      {items.map(({ title, description, icon, callToAction, classes: itemClasses = {} }, index) => (
         <div>
           <div class={twMerge('flex flex-row max-w-md', panelClass, itemClasses?.panel)}>
             <div class="flex justify-center">
@@ -44,16 +44,17 @@ const {
               )}
             </div>
             <div class="mt-0.5">
-              {title && <h3 class={twMerge('text-xl font-bold', titleClass, itemClasses?.title)}>{title}</h3>}
+              {title && <h3 data-i18n={`${translationKey}.title.${index}`} class={twMerge('text-xl font-bold', titleClass, itemClasses?.title)}>{title}</h3>}
               {description && (
                 <p
+                  data-i18n={`${translationKey}.description.${index}`}
                   class={twMerge(`${title ? 'mt-3' : ''} text-muted`, descriptionClass, itemClasses?.description)}
                   set:html={description}
                 />
               )}
               {callToAction && (
                 <div class={twMerge(`${title || description ? 'mt-3' : ''}`, actionClass, itemClasses?.actionClass)}>
-                  <Button variant="link" {...callToAction} />
+                  <Button data-i18n={`${translationKey}.button.${index}`} variant="link" {...callToAction} />
                 </div>
               )}
             </div>

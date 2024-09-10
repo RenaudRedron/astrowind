@@ -22,6 +22,7 @@ const metadata = {
   <!-- Hero Widget ******************* -->
 
   <Hero
+    translationKey='index.hero'
     actions={[
       {
         variant: 'primary',
@@ -35,28 +36,28 @@ const metadata = {
     image={{ src: '~/assets/images/hero-image.png', alt: 'AstroWind Hero Image' }}
   >
     <Fragment slot="title">
-      Free template for <span class="hidden xl:inline">creating websites with</span>
-      <span class="text-accent dark:text-white highlight"> Astro 4.0</span> + Tailwind CSS
+      <span data-i18n="index.hero.title.part1">Free template for</span> <span data-i18n="index.hero.title.part2" class="hidden xl:inline">creating websites with</span>
+      <span data-i18n="index.hero.title.part3" class="text-accent dark:text-white highlight"> Astro 4.0</span> <span data-i18n="index.hero.title.part4">+ Tailwind CSS</span>
     </Fragment>
 
     <Fragment slot="subtitle">
       <span class="hidden sm:inline">
-        <span class="font-semibold">AstroWind</span> is a free, customizable and production-ready template for Astro 4.0
-        + Tailwind CSS.</span
-      >
-      <span class="block mb-1 sm:hidden font-bold text-blue-600">AstroWind: Production-ready.</span>
-      Suitable for Startups, Small Business, SaaS websites, Professional Portfolios, Marketing websites, Landing Pages &
-      Blogs.
+        <span data-i18n="index.hero.subtitle.part1" class="font-semibold">AstroWind</span> <span data-i18n="index.hero.subtitle.part2">is a free, customizable and production-ready template for Astro 4.0
+        + Tailwind CSS.</span></span>
+      <span data-i18n="index.hero.subtitle.part3" class="block mb-1 sm:hidden font-bold text-blue-600">AstroWind: Production-ready.</span>
+      <span data-i18n="index.hero.subtitle.part4">Suitable for Startups, Small Business, SaaS websites, Professional Portfolios, Marketing websites, Landing Pages &
+      Blogs.</span>
     </Fragment>
   </Hero>
 
   <!-- Note Widget ******************* -->
 
-  <Note />
+  <Note translationKey='index.note' />
 
   <!-- Features Widget *************** -->
 
   <Features
+    translationKey='index.features'
     id="features"
     tagline="Features"
     title="What you get with AstroWind"
@@ -104,6 +105,7 @@ const metadata = {
   <!-- Content Widget **************** -->
 
   <Content
+    translationKey='index.content'
     isReversed
     tagline="Inside template"
     title="AstroWind's Blueprint: Fun Meets Functionality!"
@@ -130,8 +132,8 @@ const metadata = {
     }}
   >
     <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Building on modern foundations</h3>
-      Gain a competitive advantage by incorporating industry leading practices
+      <h3 data-i18n={`index.content.title`} class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Building on modern foundations</h3>
+      <span data-i18n={`index.content.subtitle`}>Gain a competitive advantage by incorporating industry leading practices</span>
     </Fragment>
 
     <Fragment slot="bg">
@@ -142,6 +144,7 @@ const metadata = {
   <!-- Content Widget **************** -->
 
   <Content
+    translationKey='index.content2'
     isAfterContent
     items={[
       {
@@ -169,7 +172,7 @@ const metadata = {
       alt: 'Blueprint Image',
     }}
   >
-    <Fragment slot="content">Ensure your online presence truly represents you.</Fragment>
+    <Fragment slot="content"><span data-i18n={`index.content2.subtitle`}>Ensure your online presence truly represents you.</span></Fragment>
 
     <Fragment slot="bg">
       <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
@@ -179,6 +182,7 @@ const metadata = {
   <!-- Content Widget **************** -->
 
   <Content
+    translationKey='index.content3'
     isReversed
     isAfterContent
     items={[
@@ -207,7 +211,7 @@ const metadata = {
       alt: 'Astronauts Image',
     }}
   >
-    <Fragment slot="content">Designed to foster growth and success.</Fragment>
+    <Fragment slot="content"><span data-i18n={`index.content3.subtitle`}>Designed to foster growth and success.</span></Fragment>
 
     <Fragment slot="bg">
       <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
@@ -217,6 +221,7 @@ const metadata = {
   <!-- Steps Widget ****************** -->
 
   <Steps
+    translationKey='index.steps'
     title="Get your dream website up and running in no time with AstroWind."
     items={[
       {
@@ -251,6 +256,7 @@ const metadata = {
   <!-- Features2 Widget ************** -->
 
   <Features2
+    translationKey='index.features2'
     title="Most used widgets"
     subtitle="Provides frequently used components for building websites using Tailwind CSS"
     tagline="Components"
@@ -315,6 +321,7 @@ const metadata = {
   <!-- HighlightedPosts Widget ******* -->
 
   <BlogLatestPosts
+    translationKey='index.bloglatestposts'
     title="Find out more content in our Blog"
     information={`The blog is used to display AstroWind documentation.
                         Each new article will be an important step that you will need to know to be an expert in creating a website using Astro + Tailwind CSS.
@@ -325,6 +332,7 @@ const metadata = {
   <!-- FAQs Widget ******************* -->
 
   <FAQs
+    translationKey='index.faqs'
     title="Frequently Asked Questions"
     subtitle="Dive into the following questions to gain insights into the powerful features that AstroWind offers and how it can elevate your web development journey."
     tagline="FAQs"
@@ -366,6 +374,7 @@ const metadata = {
   <!-- Stats Widget ****************** -->
 
   <Stats
+    translationKey='index.stats'
     stats={[
       { title: 'Downloads', amount: '132K' },
       { title: 'Stars', amount: '24.8K' },
@@ -377,6 +386,7 @@ const metadata = {
   <!-- CallToAction Widget *********** -->
 
   <CallToAction
+    translationKey='index.calltoaction'
     actions={[
       {
         variant: 'primary',
@@ -388,12 +398,12 @@ const metadata = {
     ]}
   >
     <Fragment slot="title">
-      Astro&nbsp;+&nbsp;<br class="block sm:hidden" /><span class="sm:whitespace-nowrap">Tailwind CSS</span>
+      <span data-i18n={`index.calltoaction.title.part1`}>Astro&nbsp;+&nbsp;</span><br class="block sm:hidden" /><span data-i18n={`index.calltoaction.title.part2`} class="sm:whitespace-nowrap">Tailwind CSS</span>
     </Fragment>
 
     <Fragment slot="subtitle">
-      Be very surprised by these huge fake numbers you are seeing on this page. <br class="hidden md:inline" />Don't
-      waste more time! :P
+      <span data-i18n={`index.calltoaction.subtitle`}>Be very surprised by these huge fake numbers you are seeing on this page. <br class="hidden md:inline" />Don't
+      waste more time! :P</span>
     </Fragment>
   </CallToAction>
 </Layout>

@@ -2,7 +2,7 @@
 import type { Form as Props } from '~/types';
 import Button from '~/components/ui/Button.astro';
 
-const { inputs, textarea, disclaimer, button = 'Contact us', description = '' } = Astro.props;
+const { translationKey, inputs, textarea, disclaimer, button = 'Contact us', description = '' } = Astro.props;
 ---
 
 <form>
@@ -13,7 +13,7 @@ const { inputs, textarea, disclaimer, button = 'Contact us', description = '' } 
           name && (
             <div class="mb-6">
               {label && (
-                <label for={name} class="block text-sm font-medium">
+                <label data-i18n={`${translationKey}.form.label.${name}`} for={name} class="block text-sm font-medium">
                   {label}
                 </label>
               )}
@@ -21,6 +21,7 @@ const { inputs, textarea, disclaimer, button = 'Contact us', description = '' } 
                 type={type}
                 name={name}
                 id={name}
+                data-i18n={`${translationKey}.form.input.${name}`}
                 autocomplete={autocomplete}
                 placeholder={placeholder}
                 class="py-3 px-4 block w-full text-md rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900"
@@ -33,11 +34,12 @@ const { inputs, textarea, disclaimer, button = 'Contact us', description = '' } 
   {
     textarea && (
       <div>
-        <label for="textarea" class="block text-sm font-medium">
+        <label data-i18n={`${translationKey}.form.textarea.label`} for="textarea" class="block text-sm font-medium">
           {textarea.label}
         </label>
         <textarea
           id="textarea"
+          data-i18n={`${translationKey}.form.textarea`}
           name={textarea.name ? textarea.name : 'message'}
           rows={textarea.rows ? textarea.rows : 4}
           placeholder={textarea.placeholder}
@@ -59,7 +61,7 @@ const { inputs, textarea, disclaimer, button = 'Contact us', description = '' } 
           />
         </div>
         <div class="ml-3">
-          <label for="disclaimer" class="cursor-pointer select-none text-sm text-gray-600 dark:text-gray-400">
+          <label data-i18n={`${translationKey}.form.label.disclaimer`} for="disclaimer" class="cursor-pointer select-none text-sm text-gray-600 dark:text-gray-400">
             {disclaimer.label}
           </label>
         </div>
@@ -70,7 +72,7 @@ const { inputs, textarea, disclaimer, button = 'Contact us', description = '' } 
   {
     button && (
       <div class="mt-10 grid">
-        <Button variant="primary" type="submit">
+        <Button translationKey={`${translationKey}.form.button`} variant="primary" type="submit" >
           {button}
         </Button>
       </div>
@@ -80,7 +82,7 @@ const { inputs, textarea, disclaimer, button = 'Contact us', description = '' } 
   {
     description && (
       <div class="mt-3 text-center">
-        <p class="text-sm text-gray-600 dark:text-gray-400">{description}</p>
+        <p data-i18n={`${translationKey}.form.description`} class="text-sm text-gray-600 dark:text-gray-400">{description}</p>
       </div>
     )
   }

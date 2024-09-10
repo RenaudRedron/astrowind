@@ -5,6 +5,7 @@ import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
 import type { Faqs as Props } from '~/types';
 
 const {
+  translationKey,
   title = '',
   subtitle = '',
   tagline = '',
@@ -19,8 +20,9 @@ const {
 ---
 
 <WidgetWrapper id={id} isDark={isDark} containerClass={`max-w-7xl mx-auto ${classes?.container ?? ''}`} bg={bg}>
-  <Headline title={title} subtitle={subtitle} tagline={tagline} />
+  <Headline translationKey={`${translationKey}.headline`} title={title} subtitle={subtitle} tagline={tagline} />
   <ItemGrid
+    translationKey={`${translationKey}.itemgrid`}
     items={items}
     columns={columns}
     defaultIcon="tabler:chevron-right"

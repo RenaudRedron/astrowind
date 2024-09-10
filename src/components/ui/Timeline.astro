@@ -4,12 +4,13 @@ import { twMerge } from 'tailwind-merge';
 import type { Item } from '~/types';
 
 export interface Props {
+  translationKey?: string;
   items?: Array<Item>;
   defaultIcon?: string;
   classes?: Record<string, string>;
 }
 
-const { items = [], classes = {}, defaultIcon } = Astro.props as Props;
+const { translationKey, items = [], classes = {}, defaultIcon } = Astro.props as Props;
 
 const {
   container: containerClass = '',
@@ -39,9 +40,10 @@ const {
             {index !== items.length - 1 && <div class="w-px h-full bg-black/10 dark:bg-slate-400/50" />}
           </div>
           <div class={`pt-1 ${index !== items.length - 1 ? 'pb-8' : ''}`}>
-            {title && <p class={twMerge('text-xl font-bold', titleClass, itemClasses?.title)} set:html={title} />}
+            {title && <p data-i18n={`${translationKey}.title.${index}`} class={twMerge('text-xl font-bold', titleClass, itemClasses?.title)} set:html={title} />}
             {description && (
               <p
+                data-i18n={`${translationKey}.description.${index}`}
                 class={twMerge('text-muted mt-2', descriptionClass, itemClasses?.description)}
                 set:html={description}
               />
