@@ -256,6 +256,7 @@ const metadata = {
   <!-- Features2 Widget ************** -->
 
   <Features2
+    translationKey='index.features2'
     title="Most used widgets"
     subtitle="Provides frequently used components for building websites using Tailwind CSS"
     tagline="Components"
@@ -320,6 +321,7 @@ const metadata = {
   <!-- HighlightedPosts Widget ******* -->
 
   <BlogLatestPosts
+    translationKey='index.bloglatestposts'
     title="Find out more content in our Blog"
     information={`The blog is used to display AstroWind documentation.
                         Each new article will be an important step that you will need to know to be an expert in creating a website using Astro + Tailwind CSS.
@@ -330,6 +332,7 @@ const metadata = {
   <!-- FAQs Widget ******************* -->
 
   <FAQs
+    translationKey='index.faqs'
     title="Frequently Asked Questions"
     subtitle="Dive into the following questions to gain insights into the powerful features that AstroWind offers and how it can elevate your web development journey."
     tagline="FAQs"
@@ -371,6 +374,7 @@ const metadata = {
   <!-- Stats Widget ****************** -->
 
   <Stats
+    translationKey='index.stats'
     stats={[
       { title: 'Downloads', amount: '132K' },
       { title: 'Stars', amount: '24.8K' },
@@ -382,6 +386,7 @@ const metadata = {
   <!-- CallToAction Widget *********** -->
 
   <CallToAction
+    translationKey='index.calltoaction'
     actions={[
       {
         variant: 'primary',
@@ -393,12 +398,12 @@ const metadata = {
     ]}
   >
     <Fragment slot="title">
-      Astro&nbsp;+&nbsp;<br class="block sm:hidden" /><span class="sm:whitespace-nowrap">Tailwind CSS</span>
+      <span data-i18n={`index.calltoaction.title.part1`}>Astro&nbsp;+&nbsp;</span><br class="block sm:hidden" /><span data-i18n={`index.calltoaction.title.part2`} class="sm:whitespace-nowrap">Tailwind CSS</span>
     </Fragment>
 
     <Fragment slot="subtitle">
-      Be very surprised by these huge fake numbers you are seeing on this page. <br class="hidden md:inline" />Don't
-      waste more time! :P
+      <span data-i18n={`index.calltoaction.subtitle`}>Be very surprised by these huge fake numbers you are seeing on this page. <br class="hidden md:inline" />Don't
+      waste more time! :P</span>
     </Fragment>
   </CallToAction>
 </Layout>

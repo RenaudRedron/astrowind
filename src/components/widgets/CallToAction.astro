@@ -5,6 +5,7 @@ import Headline from '~/components/ui/Headline.astro';
 import Button from '~/components/ui/Button.astro';
 
 interface Props extends Widget {
+  translationKey?: string
   title?: string;
   subtitle?: string;
   tagline?: string;
@@ -13,6 +14,7 @@ interface Props extends Widget {
 }
 
 const {
+  translationKey,
   title = await Astro.slots.render('title'),
   subtitle = await Astro.slots.render('subtitle'),
   tagline = await Astro.slots.render('tagline'),
@@ -43,13 +45,15 @@ const {
       actions && (
         <div class="max-w-xs sm:max-w-md m-auto flex flex-nowrap flex-col sm:flex-row sm:justify-center gap-4 mt-6">
           {Array.isArray(actions) ? (
-            actions.map((action) => (
+            actions.map((action, index) => (
               <div class="flex w-full sm:w-auto">
-                <Button {...(action || {})} class="w-full sm:mb-0" />
+                <Button translationKey={`${translationKey}.image.${index}`} {...(action || {})} class="w-full sm:mb-0" />
               </div>
             ))
           ) : (
-            <Fragment set:html={actions} />
+            <span data-i18n={`${translationKey}.action`}>
+              <Fragment set:html={actions} />
+            </span>
           )}
         </div>
       )
