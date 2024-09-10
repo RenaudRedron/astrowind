@@ -16,6 +16,7 @@ interface Links {
 }
 
 export interface Props {
+  translationKey: string;
   links: Array<Links>;
   secondaryLinks: Array<Link>;
   socialLinks: Array<Link>;
@@ -23,7 +24,7 @@ export interface Props {
   theme?: string;
 }
 
-const { socialLinks = [], secondaryLinks = [], links = [], footNote = '', theme = 'light' } = Astro.props;
+const { translationKey, socialLinks = [], secondaryLinks = [], links = [], footNote = '', theme = 'light' } = Astro.props;
 ---
 
 <footer class:list={[{ dark: theme === 'dark' }, 'relative border-t border-gray-200 dark:border-slate-800 not-prose']}>
@@ -40,6 +41,7 @@ const { socialLinks = [], secondaryLinks = [], links = [], footNote = '', theme 
               <>
                 {index !== 0 ? ' · ' : ''}
                 <a
+                  data-i18n={`${translationKey}.secondarylinks.${index}`}
                   class="text-muted hover:text-gray-700 dark:text-gray-400 hover:underline transition duration-150 ease-in-out"
                   href={href}
                   set:html={text}
@@ -50,14 +52,15 @@ const { socialLinks = [], secondaryLinks = [], links = [], footNote = '', theme 
         </div>
       </div>
       {
-        links.map(({ title, links }) => (
+        links.map(({ title, links }, index) => (
           <div class="col-span-6 md:col-span-3 lg:col-span-2">
-            <div class="dark:text-gray-300 font-medium mb-2">{title}</div>
+            <div data-i18n={`${translationKey}.title.${index}`} class="dark:text-gray-300 font-medium mb-2">{title}</div>
             {links && Array.isArray(links) && links.length > 0 && (
               <ul class="text-sm">
-                {links.map(({ text, href, ariaLabel }) => (
+                {links.map(({ text, href, ariaLabel }, index2) => (
                   <li class="mb-2">
                     <a
+                      data-i18n={`${translationKey}.title.${index}.links.${index2}`}
                       class="text-muted hover:text-gray-700 hover:underline dark:text-gray-400 transition duration-150 ease-in-out"
                       href={href}
                       aria-label={ariaLabel}
@@ -94,7 +97,7 @@ const { socialLinks = [], secondaryLinks = [], links = [], footNote = '', theme 
         )
       }
 
-      <div class="text-sm mr-4 dark:text-muted">
+      <div data-i18n={`${translationKey}.footnote`} class="text-sm mr-4 dark:text-muted">
         <Fragment set:html={footNote} />
       </div>
     </div>
